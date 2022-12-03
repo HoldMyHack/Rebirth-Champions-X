@@ -1,0 +1,396 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Rebirth Champions X By TOP G#0040", "Serpent")
+-- Tabs
+local main = Window:NewTab("Main")
+local Af = Window:NewTab("AutoFarm")
+local Tp = Window:NewTab("Teleport")
+local Credits = Window:NewTab("Credits")
+-- Sections
+local Mains = main:NewSection("Main")
+local Afs = Af:NewSection("AutoFarm")
+local Hatch = Af:NewSection("Hatch")
+local Tps = Tp:NewSection("Teleport")
+local Crts = Credits:NewSection("Credits To TOP G#0040 :)")
+-- Sliders
+Mains:NewSlider("WalkSpeed Slider", "Changes Players WalkSpeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+-- KeyBind
+Mains:NewKeybind("Toggle Gui!", "Hides UnHides GUI!", Enum.KeyCode.RightShift, function()
+	Library:ToggleUI()
+end)
+-- Buttons
+Hatch:NewButton("Hatch Single Basic Egg", "Requires 100 Taps!", function()
+        local args = {
+        [1] = "Basic",
+        [2] = "Single"
+    }
+
+    game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+Hatch:NewButton("Hatch Triple Basic Egg", "Requires 300 Taps!", function()
+    local args = {
+    [1] = "Basic",
+    [2] = "Triple"
+}
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+
+Hatch:NewButton("Hatch Single Mythic", "Requires 25K Taps!", function()
+local args = {
+    [1] = "Mythic",
+    [2] = "Single"
+}
+
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+
+Hatch:NewButton("Hatch Triple Mythic Egg", "Requires 75K Taps!", function()
+local args = {
+    [1] = "Mythic",
+    [2] = "Triple"
+}
+
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+
+Hatch:NewButton("Hatch Single Forest Egg", "Requires 10M Taps!", function()
+local args = {
+    [1] = "Forest",
+    [2] = "Single"
+}
+
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+
+Hatch:NewButton("Hatch Triple Forest Egg", "Requires 30M Taps!", function()
+local args = {
+    [1] = "Forest",
+    [2] = "Triple"
+}
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+
+Hatch:NewButton("Hatch Triple Forest Egg", "Requires 30M Taps!", function()
+local args = {
+    [1] = "Forest",
+    [2] = "Triple"
+}
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+
+Hatch:NewButton("Hatch Single Beach Egg", "Requires 10B Taps!", function()
+    local args = {
+        [1] = "Beach",
+        [2] = "Single"
+    }
+    game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+
+Hatch:NewButton("Hatch Triple Beach Egg", "Requires 30B Taps!", function()
+local args = {
+    [1] = "Beach",
+    [2] = "Triple"
+}
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+
+Tps:NewButton("Teleport To Forest Land", "Teleports You To Forest Land!", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-384.981445, 30.2464733, 176.536591, 0.135169476, -9.67444507e-08, 0.990822494, -1.73379266e-08, 1, 1.00005813e-07, -0.990822494, -3.06965404e-08, 0.135169476)
+end)
+
+Tps:NewButton("Teleport To Beach Land", "Teleports You To Beach Land!", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-514.377014, 35.1631126, 460.340179, -0.471628487, -5.44033618e-08, -0.881797373, -1.47747938e-08, 1, -5.3793709e-08, 0.881797373, -1.23422703e-08, -0.471628487)
+end)
+
+Tps:NewButton("Teleport To Atlantis Land", "Teleports You To Atlantis Land!", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(40.450161, 9.20697689, 675.801208, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+Hatch:NewButton("Hatch Triple Beach Egg", "Requires 30B Taps!", function()
+    local args = {
+        [1] = "Beach",
+        [2] = "Triple"
+    }
+    game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+    end)
+
+    Hatch:NewButton("Hatch Single Atlantis Egg", "Requires 500B Taps!", function()
+        local args = {
+            [1] = "Atlantis",
+            [2] = "Single"
+        }        
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+
+Hatch:NewButton("Hatch Triple Atlantis Egg", "Requires 500B Taps!", function()
+    local args = {
+        [1] = "Atlantis",
+        [2] = "Triple"
+    }        
+game:GetService("ReplicatedStorage").Functions.Unbox:InvokeServer(unpack(args))
+end)
+-- Toggles
+Afs:NewToggle("Auto Tap!", "Automatic Taps For You!", function(state)
+    if state then
+        _G.AutoTap = true
+        while _G.AutoTap == true do
+            game:GetService("ReplicatedStorage").Events.Click3:FireServer()
+            wait(.000000000001)
+        end
+    else
+        _G.AutoTap = false
+        while _G.AutoTap == true do
+            game:GetService("ReplicatedStorage").Events.Click3:FireServer()
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 1!", "Automatic Rebirth 1 For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+        local args = {
+        [1] = 1
+        }
+    game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+        local args = {
+        [1] = 1
+        }
+            game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 5!", "Automatic Rebirth 5 For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+local args = {
+    [1] = 2
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+local args = {
+    [1] = 2
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 10!", "Automatic Rebirth 10 For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+local args = {
+    [1] = 3
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+local args = {
+    [1] = 3
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 25!", "Automatic Rebirth 25 For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+local args = {
+    [1] = 4
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+local args = {
+    [1] = 4
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 100!", "Automatic Rebirth 100 For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+local args = {
+    [1] = 5
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+local args = {
+    [1] = 5
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 500!", "Automatic Rebirth 500 For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+local args = {
+    [1] = 6
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+local args = {
+    [1] = 6
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 2.5K!", "Automatic Rebirth 2.5K For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+local args = {
+    [1] = 7
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+local args = {
+    [1] = 7
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 5K!", "Automatic Rebirth 5K For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+local args = {
+    [1] = 8
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+local args = {
+    [1] = 8
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 10K!", "Automatic Rebirth 10K For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+local args = {
+    [1] = 9
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+local args = {
+    [1] = 9
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    end
+end)
+
+Afs:NewToggle("Auto Rebirth 50K!", "Automatic Rebirth 50K For You!", function(state)
+    if state then
+        _G.Rebirth = true
+        while _G.Rebirth == true do
+local args = {
+    [1] = 10
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+
+            wait(.000000000001)
+        end
+    else
+        _G.Rebirth = false
+        while _G.Rebirth == true do
+local args = {
+    [1] = 10
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            wait(.000000000001)
+        end
+    end
+end)
